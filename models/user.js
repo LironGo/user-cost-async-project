@@ -1,5 +1,19 @@
 const mongoose = require('mongoose');
 
+/**
+ * @fileoverview Defines the User schema and model.
+ */
+
+/**
+ * @typedef {Object} User
+ * @property {Number} id - Unique numeric identifier for a user.
+ * @property {String} first_name - First name of the user.
+ * @property {String} last_name - Last name of the user.
+ * @property {Date} birthday - User's birth date.
+ * @property {String} marital_status - One of: 'single', 'married', 'divorced', 'widowed'.
+ */
+
+/** @type {mongoose.Schema<User>} */
 const userSchema = new mongoose.Schema({
   id: {
     type: Number,
@@ -27,4 +41,5 @@ const userSchema = new mongoose.Schema({
   }
 });
 
+/** @type {mongoose.Model<User>} */
 module.exports = mongoose.model('User', userSchema);
