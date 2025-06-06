@@ -1,3 +1,9 @@
+const express = require("express");
+const router = express.Router();
+
+const User = require("../models/user");
+const Cost = require("../models/cost");
+
 /**
  * @route   GET /api/users/:id
  * @desc    Get details of a specific user (first_name, last_name, id, total cost sum).
@@ -11,7 +17,7 @@
  *           }
  *         Or an error object.
  */
-app.get("/users/:id", async (req, res) => {
+router.get("/users/:id", async (req, res) => {
   try {
     const id = parseInt(req.params.id, 10);
     if (Number.isNaN(id)) {
@@ -38,3 +44,5 @@ app.get("/users/:id", async (req, res) => {
     return res.status(500).json({ error: error.message });
   }
 });
+
+module.exports = router;

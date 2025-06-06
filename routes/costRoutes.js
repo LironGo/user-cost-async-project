@@ -1,3 +1,8 @@
+const express = require("express");
+const router = express.Router();
+
+const Cost = require("../models/cost");
+
 /**
  * @route   POST /api/add
  * @desc    Add a new cost item.
@@ -7,7 +12,7 @@
  * @body    {Number} sum - Amount of the cost.
  * @return  {Object} The newly created cost item in JSON format, or an error object.
  */
-app.post("/add", async (req, res) => {
+router.post("/add", async (req, res) => {
   try {
     const { description, category, userid, sum } = req.body;
 
@@ -25,7 +30,6 @@ app.post("/add", async (req, res) => {
     return res.status(400).json({ error: error.message });
   }
 });
-
 
 /**
  * @route   GET /api/report
@@ -48,7 +52,7 @@ app.post("/add", async (req, res) => {
  *           }
  *         Or an error object.
  */
-app.get("/report", async (req, res) => {
+router.get("/report", async (req, res) => {
   try {
     const id = parseInt(req.query.id, 10);
     const year = parseInt(req.query.year, 10);
@@ -102,3 +106,5 @@ app.get("/report", async (req, res) => {
     return res.status(500).json({ error: error.message });
   }
 });
+
+module.exports = router;

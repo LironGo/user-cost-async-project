@@ -5,15 +5,22 @@ const mongoose = require("mongoose");
 
 const User = require("./models/user");
 const Cost = require("./models/cost");
-const userRoutes = require('./routes/userRoutes');
-const costRoutes = require('./routes/costRoutes');
-const aboutRoutes = require('./routes/aboutRoutes');
+const userRoutes = require("./routes/userRoutes");
+const costRoutes = require("./routes/costRoutes");
+const aboutRoutes = require("./routes/aboutRoutes");
 
 const app = express();
 const PORT = 3000;
 
 // Middleware to parse JSON bodies
 app.use(express.json());
+
+/**
+ * @description Mount API routes
+ */
+app.use("/api", userRoutes);
+app.use("/api", costRoutes);
+app.use("/api", aboutRoutes);
 
 /**
  * Ensure MONGO_URI is set in .env
@@ -23,14 +30,6 @@ if (!MONGO_URI) {
   console.error("[Index] MONGO_URI not found in .env");
   process.exit(1);
 }
-
-/**
- * @description Mount API routes
- */
-app.use('/api', userRoutes);
-app.use('/api', costRoutes);
-app.use('/api', aboutRoutes);
-
 
 /**
  * Connect to MongoDB (using Mongoose) and start the server
