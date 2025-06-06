@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const Cost = require("../models/cost");
+const Cost = require("../models/Cost");
 
 /**
  * @route   POST /api/add

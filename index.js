@@ -3,11 +3,12 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 
-const User = require("./models/user");
-const Cost = require("./models/cost");
-const userRoutes = require("./routes/userRoutes");
-const costRoutes = require("./routes/costRoutes");
-const aboutRoutes = require("./routes/aboutRoutes");
+const User = require("./models/User");
+const Cost = require("./models/Cost");
+
+const userRoutes = require("./routes/user_routes");
+const costRoutes = require("./routes/cost_routes");
+const aboutRoutes = require("./routes/about_routes");
 
 const app = express();
 const PORT = 3000;
