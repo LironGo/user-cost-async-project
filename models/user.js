@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 /**
  * @fileoverview Defines the User schema and model.
@@ -18,28 +18,28 @@ const userSchema = new mongoose.Schema({
   id: {
     type: Number,
     required: true,
-    unique: true
+    unique: true,
   },
   first_name: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
   },
   last_name: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
   },
   birthday: {
     type: Date,
-    required: true
+    required: true,
   },
   marital_status: {
     type: String,
-    enum: ['single', 'married', 'divorced', 'widowed'],
-    required: true
-  }
+    enum: ["single", "married", "divorced", "widowed"],
+    required: true,
+  },
 });
 
 /** @type {mongoose.Model<User>} */
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model("User", userSchema);

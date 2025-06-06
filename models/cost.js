@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 /**
  * @fileoverview Defines the Cost schema and model.
@@ -17,27 +17,27 @@ const mongoose = require('mongoose');
 const costSchema = new mongoose.Schema({
   description: {
     type: String,
-    required: true
+    required: true,
   },
   category: {
     type: String,
-    enum: ['food', 'health', 'housing', 'sport', 'education'],
-    required: true
+    enum: ["food", "health", "housing", "sport", "education"],
+    required: true,
   },
   userid: {
     type: Number,
     required: true,
-    ref: 'User'
+    ref: "User",
   },
   sum: {
     type: Number,
-    required: true
+    required: true,
   },
   createdAt: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
 /** @type {mongoose.Model<Cost>} */
-module.exports = mongoose.model('Cost', costSchema);
+module.exports = mongoose.model("Cost", costSchema);
