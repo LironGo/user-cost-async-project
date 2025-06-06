@@ -28,8 +28,8 @@ describe("GET /api/users/:id", () => {
     app = require("../index");
 
     // Grab the models
-    User = require("../models/user");
-    Cost = require("../models/cost");
+    User = require("../models/User");
+    Cost = require("../models/Cost");
 
     // Wait for mongoose to connect
     await mongoose.connection.once("open", () => {});

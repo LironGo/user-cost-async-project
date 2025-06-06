@@ -30,7 +30,7 @@ describe("Costs API endpoints", () => {
     app = require("../index");
 
     // Grab the Cost model
-    Cost = require("../models/cost");
+    Cost = require("../models/Cost");
 
     // Wait until Mongoose is connected
     await mongoose.connection.once("open", () => {});
