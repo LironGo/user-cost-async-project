@@ -44,7 +44,7 @@ describe("GET /api/about", () => {
     expect(res.status).toBe(200);
     expect(Array.isArray(res.body)).toBe(true);
 
-    // We expect exactly two members as per index.js
+    // We expect exactly two members
     expect(res.body.length).toBe(2);
 
     // Check that each object has id, first_name, last_name, birthday, marital_status
@@ -56,7 +56,7 @@ describe("GET /api/about", () => {
       expect(member).toHaveProperty("marital_status");
     });
 
-    // Optionally, check the exact hardcoded values (if you want an exact match)
+    // check the exact hardcoded values
     expect(res.body).toContainEqual({
       id: "208995068",
       first_name: "Liron",
