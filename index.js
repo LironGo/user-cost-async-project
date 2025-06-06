@@ -207,3 +207,5 @@ app.get("/api/about", (req, res) => {
 
   return res.json(team);
 });
+
+module.exports = app;
